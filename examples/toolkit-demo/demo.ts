@@ -19,7 +19,7 @@ import {
   type ToolCallResult,
   type ToolDefinition,
   type ConnectionOptions,
-} from '@mcp-toolkit/core';
+} from 'mcp-performance';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // Simulated MCP Client (replace with real implementation)

@@ -10,7 +10,7 @@ import {
   createParallelExecutor,
   withBatching,
   type ToolCallResult,
-} from '@mcp-toolkit/core';
+} from 'mcp-performance';
 
 // Simulated MCP client that adds latency per call
 async function simulatedCallTool(

@@ -13,7 +13,7 @@ import {
   type ConnectionOptions,
   type ToolCallResult,
   type ToolDefinition,
-} from '@mcp-toolkit/core';
+} from 'mcp-performance';
 
 // Simulated MCP client
 class SimulatedMcpClient {

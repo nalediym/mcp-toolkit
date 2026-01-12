@@ -1,5 +1,5 @@
 {
-  "name": "@mcp-toolkit/demo",
+  "name": "mcp-performance-demo",
   "version": "0.1.0",
   "private": true,
   "description": "Demo of the MCP Performance Toolkit",
@@ -13,7 +13,7 @@
     "demo:profiler": "npx tsx demos/profiler-demo.ts"
   },
   "dependencies": {
-    "@mcp-toolkit/core": "workspace:*"
+    "mcp-performance": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^20.10.0",

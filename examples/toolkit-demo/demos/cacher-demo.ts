@@ -10,7 +10,7 @@ import {
   withCaching,
   type ToolDefinition,
   type ResourceDefinition,
-} from '@mcp-toolkit/core';
+} from 'mcp-performance';
 
 // Simulated slow fetch functions
 let fetchCallCount = 0;

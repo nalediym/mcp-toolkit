@@ -24,9 +24,9 @@ Four utilities that solve these problems:
 ## Installation
 
 ```bash
-npm install @mcp-toolkit/core
+npm install mcp-performance
 # or
-pnpm add @mcp-toolkit/core
+pnpm add mcp-performance
 ```
 
 ## Quick Start
@@ -37,7 +37,7 @@ import {
   ToolDefinitionCacher,
   McpConnectionPool,
   McpProfiler
-} from '@mcp-toolkit/core';
+} from 'mcp-performance';
 ```
 
 ---
@@ -49,7 +49,7 @@ import {
 **Solution:** Batch them together.
 
 ```typescript
-import { McpCallBatcher, createParallelExecutor } from '@mcp-toolkit/core';
+import { McpCallBatcher, createParallelExecutor } from 'mcp-performance';
 
 // Create a batcher
 const batcher = new McpCallBatcher({
@@ -84,7 +84,7 @@ console.log(`Saved ${stats.callsSaved} round-trips`);
 ### Quick Setup (One-liner)
 
 ```typescript
-import { withBatching } from '@mcp-toolkit/core';
+import { withBatching } from 'mcp-performance';
 
 const batchedCall = withBatching(mcpClient.callTool.bind(mcpClient), {
   maxBatchSize: 5,
@@ -104,7 +104,7 @@ await batchedCall('tool1', { arg: 1 });
 **Solution:** Cache it.
 
 ```typescript
-import { ToolDefinitionCacher } from '@mcp-toolkit/core';
+import { ToolDefinitionCacher } from 'mcp-performance';
 
 const cacher = new ToolDefinitionCacher({
   fetchTools: () => mcpClient.listTools(),
@@ -145,7 +145,7 @@ const freshTools = await cacher.getTools({ forceRefresh: true });
 ### Quick Setup (One-liner)
 
 ```typescript
-import { withCaching } from '@mcp-toolkit/core';
+import { withCaching } from 'mcp-performance';
 
 const cachedListTools = withCaching(
   () => mcpClient.listTools(),
@@ -164,7 +164,7 @@ const tools = await cachedListTools();
 **Solution:** Pool and reuse them.
 
 ```typescript
-import { McpConnectionPool, wrapMcpClient } from '@mcp-toolkit/core';
+import { McpConnectionPool, wrapMcpClient } from 'mcp-performance';
 
 const pool = new McpConnectionPool({
   factory: async (options) => {
@@ -210,7 +210,7 @@ try {
 ### Load Balancing
 
 ```typescript
-import { createLoadBalancer } from '@mcp-toolkit/core';
+import { createLoadBalancer } from 'mcp-performance';
 
 const balancer = createLoadBalancer([
   'http://server1:50051',
@@ -234,7 +234,7 @@ const url4 = balancer.next(); // server1 (wraps around)
 **Solution:** Measure everything.
 
 ```typescript
-import { McpProfiler } from '@mcp-toolkit/core';
+import { McpProfiler } from 'mcp-performance';
 
 const profiler = new McpProfiler();
 const session = profiler.startSession('my-workflow');
@@ -292,7 +292,7 @@ console.log(`Took ${duration}ms`);
 ### Profile an Entire Client
 
 ```typescript
-import { profileMcpClient } from '@mcp-toolkit/core';
+import { profileMcpClient } from 'mcp-performance';
 
 const session = profiler.startSession('client-ops');
 const profiledClient = profileMcpClient(mcpClient, session);
@@ -339,7 +339,7 @@ import {
   McpConnectionPool,
   wrapMcpClient,
   McpProfiler,
-} from '@mcp-toolkit/core';
+} from 'mcp-performance';
 
 // 1. Profiler - measure everything
 const profiler = new McpProfiler();

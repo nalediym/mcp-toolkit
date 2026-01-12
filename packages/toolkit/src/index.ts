@@ -1,5 +1,5 @@
 /**
- * @mcp-toolkit/core
+ * mcp-performance
  *
  * Performance toolkit for Model Context Protocol - batching, caching, pooling, and profiling utilities.
  *
@@ -17,7 +17,7 @@
  *   ToolDefinitionCacher,
  *   McpConnectionPool,
  *   McpProfiler,
- * } from '@mcp-toolkit/core';
+ * } from 'mcp-performance';
  *
  * // Create a profiler to measure performance
  * const profiler = new McpProfiler();

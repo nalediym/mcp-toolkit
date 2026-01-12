@@ -13,7 +13,7 @@ import {
   createMeasure,
   type ToolCallResult,
   type ToolDefinition,
-} from '@mcp-toolkit/core';
+} from 'mcp-performance';
 
 // Simulated MCP operations
 async function simulatedListTools(): Promise<ToolDefinition[]> {
