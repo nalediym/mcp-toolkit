@@ -1,0 +1,24 @@
+{
+  "name": "grpc-mcp-benchmarks",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "bench": "tsx src/run-benchmarks.ts",
+    "bench:json-rpc": "tsx src/json-rpc-server.ts",
+    "bench:grpc": "tsx src/grpc-server.ts",
+    "report": "tsx src/generate-report.ts"
+  },
+  "dependencies": {
+    "@bufbuild/protobuf": "^2.10.0",
+    "@grpc-mcp/client": "workspace:*",
+    "@grpc-mcp/server": "workspace:*",
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "cli-table3": "^0.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.3.0"
+  }
+}

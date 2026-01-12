@@ -1,0 +1,28 @@
+{
+  "name": "grpc-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "description": "gRPC transport for Model Context Protocol",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/grpc-mcp/grpc-mcp"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean",
+    "proto:generate": "pnpm --filter @grpc-mcp/proto generate",
+    "dev": "turbo run dev"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "turbo": "^2.0.0",
+    "typescript": "^5.3.0"
+  },
+  "packageManager": "pnpm@8.15.0",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

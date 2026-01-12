@@ -1,0 +1,19 @@
+{
+  "name": "example-basic-server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node --loader ts-node/esm server.ts",
+    "build": "tsc",
+    "dev": "node --loader ts-node/esm --watch server.ts"
+  },
+  "dependencies": {
+    "@grpc-mcp/server": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.3.0"
+  }
+}

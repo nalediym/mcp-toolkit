@@ -1,0 +1,34 @@
+{
+  "name": "@grpc-mcp/proto",
+  "version": "0.1.0",
+  "description": "Protocol buffer definitions for gRPC MCP",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "proto"
+  ],
+  "scripts": {
+    "generate": "buf generate",
+    "build": "pnpm generate && tsc",
+    "clean": "rm -rf dist src/gen",
+    "lint": "buf lint"
+  },
+  "dependencies": {
+    "@bufbuild/protobuf": "^2.10.0",
+    "@connectrpc/connect": "^2.1.0"
+  },
+  "devDependencies": {
+    "@bufbuild/buf": "^1.47.0",
+    "@bufbuild/protoc-gen-es": "^2.10.0",
+    "@connectrpc/protoc-gen-connect-es": "^1.7.0",
+    "typescript": "^5.3.0"
+  },
+  "license": "MIT"
+}
