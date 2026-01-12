@@ -1,11 +1,11 @@
 {
-  "name": "grpc-mcp",
+  "name": "mcp-toolkit",
   "version": "0.1.0",
   "private": true,
-  "description": "gRPC transport for Model Context Protocol",
+  "description": "Performance toolkit for Model Context Protocol applications",
   "repository": {
     "type": "git",
-    "url": "https://github.com/grpc-mcp/grpc-mcp"
+    "url": "https://github.com/nalediym/mcp-toolkit"
   },
   "license": "MIT",
   "scripts": {
@@ -13,7 +13,6 @@
     "test": "turbo run test",
     "lint": "turbo run lint",
     "clean": "turbo run clean",
-    "proto:generate": "pnpm --filter @grpc-mcp/proto generate",
     "dev": "turbo run dev"
   },
   "devDependencies": {

@@ -1,0 +1,49 @@
+{
+  "name": "@mcp-toolkit/core",
+  "version": "0.1.0",
+  "description": "Performance toolkit for Model Context Protocol - batching, caching, pooling, and profiling utilities",
+  "keywords": ["mcp", "model-context-protocol", "performance", "batching", "caching", "pooling", "profiling"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nalediym/mcp-toolkit"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./batcher": {
+      "types": "./dist/batcher.d.ts",
+      "default": "./dist/batcher.js"
+    },
+    "./cacher": {
+      "types": "./dist/cacher.d.ts",
+      "default": "./dist/cacher.js"
+    },
+    "./pooler": {
+      "types": "./dist/pooler.d.ts",
+      "default": "./dist/pooler.js"
+    },
+    "./profiler": {
+      "types": "./dist/profiler.d.ts",
+      "default": "./dist/profiler.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "test": "node --test dist/**/*.test.js",
+    "dev": "tsc --watch"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.0"
+  },
+  "license": "MIT"
+}
