@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "description": "Performance toolkit for Model Context Protocol - batching, caching, pooling, and profiling utilities",
   "keywords": ["mcp", "model-context-protocol", "performance", "batching", "caching", "pooling", "profiling"],
+  "author": "nalediym",
+  "homepage": "https://github.com/nalediym/mcp-performance#readme",
   "repository": {
     "type": "git",
     "url": "https://github.com/nalediym/mcp-performance"
   },
+  "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {

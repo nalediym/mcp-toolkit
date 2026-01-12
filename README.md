@@ -422,6 +422,11 @@ batcher.callImmediate(name, args) → Promise<ToolCallResult>
 batcher.flush() → Promise<void>
 batcher.getStats() → BatcherStats
 batcher.cancelAll(reason?) → void
+batcher.pendingCalls → number  // getter
+
+// Helper functions
+createParallelExecutor(callFn, concurrency?) → executor
+withBatching(callFn, options?) → batchedCallFn
 ```
 
 ### Cacher
@@ -433,15 +438,23 @@ new ToolDefinitionCacher(options: {
   fetchPrompts?: () => Promise<PromptDefinition[]>;
   ttlMs?: number;        // Default: 300000 (5 min)
   autoRefresh?: boolean; // Default: false
+  storage?: StorageAdapter;  // Optional persistent storage
 })
 
 cacher.getTools(options?) → Promise<ToolDefinition[]>
 cacher.getResources(options?) → Promise<ResourceDefinition[]>
 cacher.getPrompts(options?) → Promise<PromptDefinition[]>
+cacher.getTool(name, options?) → Promise<ToolDefinition | undefined>
+cacher.preload() → Promise<void>  // Preload all caches
 cacher.invalidate(type) → void
 cacher.invalidateAll() → void
+cacher.isValid(type) → boolean
 cacher.getStats() → CacheStats
 cacher.dispose() → void
+
+// Helper functions
+withCaching(fetchFn, options?) → cachedFetchFn
+MemoryStorageAdapter  // In-memory storage implementation
 ```
 
 ### Pooler
@@ -463,6 +476,12 @@ pool.withConnection(options, fn) → Promise<T>
 pool.warmup(urls) → Promise<void>
 pool.shutdown() → Promise<void>
 pool.getStats() → PoolStats
+pool.getDetailedStats() → PoolStats & { byUrl }
+pool.removeUrl(url) → Promise<void>
+
+// Helper functions
+wrapMcpClient(client, id?) → McpConnection
+createLoadBalancer(urls) → { next, add, remove, getUrls }
 ```
 
 ### Profiler
@@ -471,10 +490,14 @@ pool.getStats() → PoolStats
 new McpProfiler(options?: { maxCompletedReports?: number })
 
 profiler.startSession(name) → ProfilingSession
+profiler.getSession(name) → ProfilingSession | undefined
 profiler.endSession(name) → ProfilerReport
 profiler.timeOnce(op, fn) → Promise<{result, duration}>
 profiler.printReport(report, options?) → void
-profiler.generateWaterfall(report) → string
+profiler.generateWaterfall(report, width?) → string
+profiler.formatAsJson(report, pretty?) → string
+profiler.getCompletedReports() → ProfilerReport[]
+profiler.clearReports() → void
 
 // Session methods
 session.time(operation, fn, metadata?) → T | Promise<T>
@@ -482,6 +505,13 @@ session.start(operation, metadata?) → () => void
 session.record(operation, durationMs, metadata?) → void
 session.mark(name, metadata?) → void
 session.end() → ProfilerReport
+session.isEnded → boolean
+session.currentDuration → number
+
+// Helper functions
+profileMcpClient(client, session) → proxiedClient
+createProfilingMiddleware() → { before, after, error, getStats, reset }
+createMeasure() → { start, end, getResults, clear }
 ```
 
 ---
